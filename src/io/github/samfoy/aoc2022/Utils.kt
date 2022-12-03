@@ -1,3 +1,5 @@
+package io.github.samfoy.aoc2022
+
 import java.io.File
 
 /**

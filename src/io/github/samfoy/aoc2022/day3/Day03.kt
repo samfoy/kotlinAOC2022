@@ -1,3 +1,7 @@
+package io.github.samfoy.aoc2022.day3
+
+import io.github.samfoy.aoc2022.readInput
+
 fun main() {
     fun part1(input: List<String>) = input
         .map { it.chunked(it.length / 2) }
@@ -9,7 +13,7 @@ fun main() {
         .map { it.uniqueChars() }
         .sumOf { it.getPriority() }
 
-    val input = readInput("Day03").lines()
+    val input = readInput("resources/Day03").lines()
     println(part1(input))
     println(part2(input))
 }

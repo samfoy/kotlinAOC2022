@@ -1,3 +1,7 @@
+package io.github.samfoy.aoc2022.day2
+
+import io.github.samfoy.aoc2022.readInput
+
 fun main() {
     fun part1(input: String) = input
         .split("\n")
@@ -6,10 +10,10 @@ fun main() {
 
     fun part2(input: String) = input
         .split("\n")
-        .map {replace(it.split(" "))}
+        .map { replace(it.split(" ")) }
         .sumOf { gameScore(it) + shapeScore(it.last()) }
 
-    val input = readInput("Day02")
+    val input = readInput("resources/Day02")
     println(part1(input))
     println(part2(input))
 }
