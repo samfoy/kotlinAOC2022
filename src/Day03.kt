@@ -1,7 +1,7 @@
 fun main() {
-    fun part1(input: List<String>): Int = input
+    fun part1(input: List<String>) = input
         .map { it.half() }
-        .map { it.common() }
+        .map { it.uniqueChars() }
         .sumOf { it.getPriority() }
 
     fun part2(input: List<String>) = input
@@ -19,16 +19,11 @@ fun List<String>.uniqueChars() = this
     .reduce { a, b -> a.intersect(b) }
     .first()
 
-fun Pair<CharSequence, CharSequence>.common(): Char =
-    this.first.toList().intersect(this.second.toList().toSet()).first()
+fun String.half() =
+    listOf(this.substring(0, this.length / 2), this.substring(this.length / 2, this.length))
 
-fun String.half(): Pair<CharSequence, CharSequence> =
-    Pair(this.subSequence(0, this.length / 2), this.subSequence(this.length / 2, this.length))
-
-fun Char.getPriority(): Int {
-    return if (this.isLowerCase()) {
-        this.code - 96
-    } else {
-        this.code - 38
-    }
+fun Char.getPriority() = when (this.isLowerCase()) {
+    true -> this.code - 96
+    false -> this.code - 38
 }
+
