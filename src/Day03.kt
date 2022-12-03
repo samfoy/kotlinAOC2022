@@ -1,6 +1,6 @@
 fun main() {
     fun part1(input: List<String>) = input
-        .map { it.half() }
+        .map { it.chunked(it.length / 2) }
         .map { it.uniqueChars() }
         .sumOf { it.getPriority() }
 
@@ -18,9 +18,6 @@ fun List<String>.uniqueChars() = this
     .map { it.toSet() }
     .reduce { a, b -> a.intersect(b) }
     .first()
-
-fun String.half() =
-    listOf(this.substring(0, this.length / 2), this.substring(this.length / 2, this.length))
 
 fun Char.getPriority() = when (this.isLowerCase()) {
     true -> this.code - 96
