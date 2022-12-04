@@ -18,9 +18,9 @@ fun main() {
 
     val input = readInput("resources/Day04").lines()
         .filter { it.isNotBlank() }
-        .map { pair ->
-            pair.split(",")
-                .map { sub -> sub.split("-").map(String::toInt) }
+        .map { line ->
+            line.split(",")
+                .map { it.split("-").map(String::toInt) }
                 .map { (it.first()..it.last()).toList() }
                 .toPair()
         }
