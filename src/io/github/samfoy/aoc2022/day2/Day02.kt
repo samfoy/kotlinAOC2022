@@ -1,19 +1,18 @@
 package io.github.samfoy.aoc2022.day2
 
-import io.github.samfoy.aoc2022.readInput
+import io.github.samfoy.aoc2022.asLines
+import io.github.samfoy.aoc2022.getInputForDay
 
-fun main() {
-    fun part1(input: String) = input
-        .split("\n")
+suspend fun main() {
+    fun part1(input: List<String>) = input
         .map { it.split(" ") }
         .sumOf { gameScore(it) + shapeScore(it.last()) }
 
-    fun part2(input: String) = input
-        .split("\n")
+    fun part2(input: List<String>) = input
         .map { replace(it.split(" ")) }
         .sumOf { gameScore(it) + shapeScore(it.last()) }
 
-    val input = readInput("resources/Day02")
+    val input = getInputForDay(2).asLines()
     println(part1(input))
     println(part2(input))
 }

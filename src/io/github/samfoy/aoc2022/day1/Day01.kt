@@ -1,6 +1,6 @@
 package io.github.samfoy.aoc2022.day1
 
-import io.github.samfoy.aoc2022.readInput
+import io.github.samfoy.aoc2022.getInputForDay
 
 private fun part1(testInput: String) = testInput
     .split("\n\n")
@@ -13,8 +13,8 @@ private fun part2(testInput: String) = testInput
     .take(3)
     .sum()
 
-fun main() {
-    val testInput = readInput("resources/Day01")
+suspend fun main() {
+    val testInput = getInputForDay(1)
     println(part1(testInput))
     println(part2(testInput))
 }
